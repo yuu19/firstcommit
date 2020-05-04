@@ -1,31 +1,41 @@
 import requests  
 from bs4 import BeautifulSoup
-url = 'https://www.youtube.com/watch?v=KMZF4gXc8OQ&t=1397s'
+url = 'http://abehiroshi.la.coocan.jp/'
 r = requests.get(url)
 html_contents = r.text
+#print(r.text)
+
 html_soup = BeautifulSoup(html_contents, 'html.parser')
-#最初の<h1>タグを検索
-first_h1 = html_soup.find('h1')
 
-print(first_h1.name)
-print(first_h1.contents)
+print(html_soup)
 
-print(str(first_h1))
+print(html_soup.find('meta').name)
+print(html_soup.find('meta').contents)
 
-print(first_h1.text)
 
-print(first_h1.attrs)
 
-print('----------CITATIONS--------------')
+#link = html_soup.find('a')
 
-cites = html_soup.find_all('cite', class_ = 'citation', limit=5)
-for citation in cites:
-    print(citation.get_text())
+#print(link)
+
+#print(link.get('href'))
+
+#print(str(first_title))
+
+#print(first_h1.text)
+
+#print(first_h1.attrs)
+
+#print('----------CITATIONS--------------')
+
+#cites = html_soup.find_all('cite', class_ = 'citation', limit=5)
+#for citation in cites:
+ #   print(citation.get_text())
     
-    link = citation.find('a')
+  #  link = citation.find('a')
 
-    print(link.get('href'))
-    print()
+   # print(link.get('href'))
+   # print()
 
 
  
